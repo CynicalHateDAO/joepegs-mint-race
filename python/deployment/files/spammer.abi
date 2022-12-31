@@ -1,0 +1,17 @@
+[
+   {
+      "inputs":[
+         {
+            "internalType":"uint8",
+            "name":"info",
+            "type":"uint8"
+         }
+      ],
+      "name":"consume",
+      "outputs":[
+
+      ],
+      "stateMutability":"nonpayable",
+      "type":"function"
+   }
+]

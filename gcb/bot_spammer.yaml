@@ -1,0 +1,18 @@
+# Launches a process that waits for the mint to be announced, and then
+# starts spamming transactions to waste gas.
+steps:
+  - name: "us-east4-docker.pkg.dev/${PROJECT_ID}/nft/flood-bot:latest"
+    entrypoint: "python3.9"
+    dir: "/app"
+    args: [
+      "-u",
+      "flood_spammer.py",
+      "--mint_contract=${_MINT_CONTRACT}",
+      "--user_address=${_USER_ADDRESS}",
+      "--max_gas=${_MAX_GAS}",
+      "--gas_tip=${_GAS_TIP}",
+      "--gas_limit=${_GAS_LIMIT}",
+      "--network=${_NETWORK}"
+    ]
+timeout: 7200s
+tags: ['flood_bot', 'flood_bot_spammer']

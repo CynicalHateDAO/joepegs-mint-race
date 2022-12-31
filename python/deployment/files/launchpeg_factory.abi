@@ -1,0 +1,641 @@
+[
+  {
+    "inputs": [],
+    "name": "LaunchpegFactory__InvalidImplementation",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Launchpeg__InvalidJoeFeeCollector",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Launchpeg__InvalidPercent",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "flatLaunchpeg",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "symbol",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "projectOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "royaltyReceiver",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "maxBatchSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "collectionSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountForDevs",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountForAllowlist",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "batchRevealSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "revealStartTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "revealInterval",
+        "type": "uint256"
+      }
+    ],
+    "name": "FlatLaunchpegCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "launchpeg",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "symbol",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "projectOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "royaltyReceiver",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "maxBatchSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "collectionSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountForAuction",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountForAllowlist",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountForDevs",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "batchRevealSize",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "revealStartTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "revealInterval",
+        "type": "uint256"
+      }
+    ],
+    "name": "LaunchpegCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "joeFeeCollector",
+        "type": "address"
+      }
+    ],
+    "name": "SetDefaultJoeFeeCollector",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "joeFeePercent",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetDefaultJoeFeePercent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "flatLaunchpegImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "SetFlatLaunchpegImplementation",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "launchpegImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "SetLaunchpegImplementation",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "allLaunchpegs",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_symbol",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_projectOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_royaltyReceiver",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxBatchSize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_collectionSize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountForDevs",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountForAllowlist",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "batchRevealSize",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "revealStartTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "revealInterval",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct ILaunchpegFactory.BatchReveal",
+        "name": "_batchRevealData",
+        "type": "tuple"
+      }
+    ],
+    "name": "createFlatLaunchpeg",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_symbol",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_projectOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_royaltyReceiver",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxBatchSize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_collectionSize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountForAuction",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountForAllowlist",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountForDevs",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "batchRevealSize",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "revealStartTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "revealInterval",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct ILaunchpegFactory.BatchReveal",
+        "name": "_batchRevealData",
+        "type": "tuple"
+      }
+    ],
+    "name": "createLaunchpeg",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "flatLaunchpegImplementation",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_launchpegImplementation",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_flatLaunchpegImplementation",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_joeFeePercent",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_joeFeeCollector",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "isLaunchpeg",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "joeFeeCollector",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "joeFeePercent",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "launchpegImplementation",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_launchpegType",
+        "type": "uint256"
+      }
+    ],
+    "name": "numLaunchpegs",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_joeFeeCollector",
+        "type": "address"
+      }
+    ],
+    "name": "setDefaultJoeFeeCollector",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_joeFeePercent",
+        "type": "uint256"
+      }
+    ],
+    "name": "setDefaultJoeFeePercent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_flatLaunchpegImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "setFlatLaunchpegImplementation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_launchpegImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "setLaunchpegImplementation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

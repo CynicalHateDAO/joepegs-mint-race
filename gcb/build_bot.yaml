@@ -1,0 +1,8 @@
+# Builds the actual bot container image that is used to run a mint.
+# If you make changes to anything in `python` you need to rebuild this.
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-east4-docker.pkg.dev/${PROJECT_ID}/nft/flood-bot', '-f', 'gcb/Dockerfile', '.' ]
+images:
+  - 'us-east4-docker.pkg.dev/${PROJECT_ID}/nft/flood-bot'
+tags: ['build_bot']

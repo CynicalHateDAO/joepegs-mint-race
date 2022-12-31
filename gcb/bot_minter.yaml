@@ -1,0 +1,16 @@
+# Launch the version of the bot that directly mints from the contract.
+steps:
+  - name: "us-east4-docker.pkg.dev/${PROJECT_ID}/nft/flood-bot:latest"
+    entrypoint: "python3.9"
+    dir: "/app"
+    args: [
+      "-u",
+      "flood_minter.py",
+      "--mint_contract=${_MINT_CONTRACT}",
+      "--max_gas=${_MAX_GAS}",
+      "--gas_tip=${_GAS_TIP}",
+      "--gas_limit=${_GAS_LIMIT}",
+      "--network=${_NETWORK}"
+    ]
+timeout: 7200s
+tags: ['flood_bot', 'flood_bot_minter']

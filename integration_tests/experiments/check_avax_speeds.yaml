@@ -1,0 +1,13 @@
+# Launch the version of the bot that directly mints from the contract.
+steps:
+  - name: "us-east4-docker.pkg.dev/${PROJECT_ID}/nft/flood-bot:latest"
+    entrypoint: "python3.9"
+    dir: "/app"
+    args: [
+      "-u",
+      "integration_tests/experiments/check_avax_speeds.py",
+    ]
+    env:
+    - 'PYTHONPATH=/app'
+timeout: 3600s
+tags: ['flood_bot', 'flood_bot_minter']

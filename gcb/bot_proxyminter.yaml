@@ -1,0 +1,18 @@
+# Launch the version of the bot that uses a proxy contract to mint.
+steps:
+  - name: "us-east4-docker.pkg.dev/${PROJECT_ID}/nft/flood-bot:latest"
+    entrypoint: "python3.9"
+    dir: "/app"
+    args: [
+      "-u",
+      "flood_proxyminter.py",
+      "--mint_contract=${_MINT_CONTRACT}",
+      "--user_addresses=${_USER_ADDRESS_0},${_USER_ADDRESS_1},${_USER_ADDRESS_2}",
+      "--proxy_contracts=${_PROXY_ADDRESS_0},${_PROXY_ADDRESS_1},${_PROXY_ADDRESS_2}",
+      "--max_gas=${_MAX_GAS}",
+      "--gas_tip=${_GAS_TIP}",
+      "--gas_limit=${_GAS_LIMIT}",
+      "--network=${_NETWORK}"
+    ]
+timeout: 7200s
+tags: ['flood_bot', 'flood_bot_proxyminter']
